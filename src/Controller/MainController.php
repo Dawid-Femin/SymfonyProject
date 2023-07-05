@@ -10,14 +10,24 @@ use Symfony\Component\Routing\Annotation\Route;
 class MainController extends AbstractController
 {
     #[Route('/', name: 'home')]
-    public function indexAction():object
+    public function homeAction():object
     {
-        return $this->render('index.html.twig');
+        return $this->render('Home/home.html.twig');
     }
-    #[Route('/product/{name?}', name: 'product')]
-    public function productsAction(Request $request):object
+    #[Route('/about', name: 'about')]
+    public function aboutAction():object
     {
-        $product = $request->get('product');
-        return $this->render('base.html.twig');
+        return $this->render('About/about.html.twig');
     }
+    #[Route('/services', name: 'services')]
+    public function servicesAction():object
+    {
+        return $this->render('Services/services.html.twig');
+    }
+    #[Route('/contact', name: 'contact')]
+    public function contactAction():object
+    {
+        return $this->render('Contact/contact.html.twig');
+    }
+
 }
